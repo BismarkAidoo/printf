@@ -23,10 +23,11 @@ Compilation:
 
 Output:
 
-```$ ./test_file
-```Team-Work makes the Dream Work!
-```$
-
+```
+$ ./test_file
+Team-Work makes the Dream Work!
+$ 
+```
                                                                          
 
 ## Authors
