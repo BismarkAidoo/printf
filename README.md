@@ -23,7 +23,7 @@ Compilation:
 
 Output:
 	$ ./test_file
-	Hello, Mark & Ann
+	Hello, Mark & Ann                                                                                                   
 	$
 
 
