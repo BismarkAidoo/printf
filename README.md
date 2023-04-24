@@ -12,7 +12,7 @@ Example `main.c`:
 	
 	int main(void)
 	{
-		printf("Hello, Mark & Ann");
+		printf("Team-Work makes the Dream Work!");
 		
 		return (0);
 	}
@@ -23,7 +23,7 @@ Compilation:
 
 Output:
 	$ ./test_file
-	Hello, Mark & Ann                                                                                                   
+	Team-Work makes the Dream Work!                                                                                  
 	$
 
 
