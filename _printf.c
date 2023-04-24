@@ -26,7 +26,7 @@ void clear_up(va_list args, buffer_t *output)
  */
 int read_printf(const char *format, va_list args, buffer_t *output)
 {
-	int a, width, p, r = 0;
+	int a, width, p, rt = 0;
 	char tmp;
 	unsigned char flags, len;
 	unsigned int (*form)(va_list, buffer_t *,
@@ -48,20 +48,20 @@ int read_printf(const char *format, va_list args, buffer_t *output)
 			if (form != NULL)
 			{
 				a += tmp + 1;
-				r += form(args, output, flags, width, p, len);
+				rt += form(args, output, flags, width, p, len);
 				continue;
 			}
 			else if (*(format + a + tmp + 1) == '\0')
 			{
-				r = -1;
+				rt = -1;
 				break;
 			}
 		}
-		r += _memcpy(output, (format + a), 1);
+		rt += _memcpy(output, (format + a), 1);
 		a += (len != 0) ? 1 : 0;
 	}
 	clear_up(args, output);
-	return (r);
+	return (rt);
 }
 
 /**
@@ -74,7 +74,7 @@ int _printf(const char *format, ...)
 {
 	buffer_t *output;
 	va_list args;
-	int r;
+	int rt;
 
 	if (format == NULL)
 		return (-1);
@@ -84,7 +84,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	r = read_printf(format, args, output);
+	rt = read_printf(format, args, output);
 
-	return (r);
+	return (rt);
 }
