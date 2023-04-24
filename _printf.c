@@ -1,15 +1,15 @@
-#include "holberton.h"
+#include "main.h"
 
-void cleanup(va_list args, buffer_t *output);
-int run_printf(const char *format, va_list args, buffer_t *output);
+void clear_up(va_list args, buffer_t *output);
+int read_printf(const char *format, va_list args, buffer_t *output);
 int _printf(const char *format, ...);
 
 /**
- * cleanup - Peforms cleanup operations for _printf.
- * @args: A va_list of arguments provided to _printf.
+ * clear_up - Peforms tidying operations for _printf.
+ * @args: variable list of arguments provided to _printf.
  * @output: A buffer_t struct.
  */
-void cleanup(va_list args, buffer_t *output)
+void clear_up(va_list args, buffer_t *output)
 {
 	va_end(args);
 	write(1, output->start, output->len);
@@ -17,55 +17,55 @@ void cleanup(va_list args, buffer_t *output)
 }
 
 /**
- * run_printf - Reads through the format string for _printf.
+ * read_printf - a function reads through the format string for _printf.
  * @format: Character string to print - may contain directives.
- * @output: A buffer_t struct containing a buffer.
- * @args: A va_list of arguments.
+ * @output: A buffer_t struct containing a temporal data.
+ * @args: A variable list of arguments.
  *
  * Return: The number of characters stored to output.
  */
-int run_printf(const char *format, va_list args, buffer_t *output)
+int read_printf(const char *format, va_list args, buffer_t *output)
 {
-	int i, wid, prec, ret = 0;
+	int a, width, p, r = 0;
 	char tmp;
 	unsigned char flags, len;
-	unsigned int (*f)(va_list, buffer_t *,
+	unsigned int (*form)(va_list, buffer_t *,
 			unsigned char, int, int, unsigned char);
 
-	for (i = 0; *(format + i); i++)
+	for (a = 0; *(format + a); a++)
 	{
 		len = 0;
-		if (*(format + i) == '%')
+		if (*(format + a) == '%')
 		{
 			tmp = 0;
-			flags = handle_flags(format + i + 1, &tmp);
-			wid = handle_width(args, format + i + tmp + 1, &tmp);
-			prec = handle_precision(args, format + i + tmp + 1,
+			flags = handle_flags(format + a + 1, &tmp);
+			width = handle_width(args, format + a + tmp + 1, &tmp);
+			p = handle_precision(args, format + a + tmp + 1,
 					&tmp);
-			len = handle_length(format + i + tmp + 1, &tmp);
+			len = handle_length(format + a + tmp + 1, &tmp);
 
-			f = handle_specifiers(format + i + tmp + 1);
-			if (f != NULL)
+			form = handle_specifiers(format + a + tmp + 1);
+			if (form != NULL)
 			{
-				i += tmp + 1;
-				ret += f(args, output, flags, wid, prec, len);
+				a += tmp + 1;
+				r += form(args, output, flags, width, p, len);
 				continue;
 			}
-			else if (*(format + i + tmp + 1) == '\0')
+			else if (*(format + a + tmp + 1) == '\0')
 			{
-				ret = -1;
+				r = -1;
 				break;
 			}
 		}
-		ret += _memcpy(output, (format + i), 1);
-		i += (len != 0) ? 1 : 0;
+		r += _memcpy(output, (format + a), 1);
+		a += (len != 0) ? 1 : 0;
 	}
-	cleanup(args, output);
-	return (ret);
+	clear_up(args, output);
+	return (r);
 }
 
 /**
- * _printf - Outputs a formatted string.
+ * _printf - A function that outputs a formatted string to output stream.
  * @format: Character string to print - may contain directives.
  *
  * Return: The number of characters printed.
@@ -74,7 +74,7 @@ int _printf(const char *format, ...)
 {
 	buffer_t *output;
 	va_list args;
-	int ret;
+	int r;
 
 	if (format == NULL)
 		return (-1);
@@ -84,7 +84,7 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	ret = run_printf(format, args, output);
+	r = read_printf(format, args, output);
 
-	return (ret);
+	return (r);
 }
