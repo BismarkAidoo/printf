@@ -22,9 +22,9 @@ Compilation:
 	$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o test_file
 
 Output:
-	$ ./test_file
-	Team-Work makes the Dream Work!                                                                                  
-	$
+$ ./test_file
+Team-Work makes the Dream Work!                                                                                  
+$
 
 
 ## Authors
