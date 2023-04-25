@@ -13,7 +13,7 @@
  */
 int hndle_write_char(char c, char buffer[], int flags,
 		int width, int precision, int size)
-{ 
+{
 	int a = 0;
 	char padd = ' ';
 
@@ -54,10 +54,10 @@ int hndle_write_char(char c, char buffer[], int flags,
  *
  * Return: Number of chars printed
  */
-int write_number(int is_negative, int cr, char buffer[], int flags,
+int write_number(int is_negative, int index, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	int length = BUFF_SIZE - cr - 1;
+	int length = BUFF_SIZE - index - 1;
 	char padd = ' ', extra_ch = 0;
 
 	UNUSED(size);
@@ -71,7 +71,7 @@ int write_number(int is_negative, int cr, char buffer[], int flags,
 	else if (flags & F_SPACE)
 		extra_ch = ' ';
 
-	return (write_numb(cr, buffer, flags, width, precision,
+	return (write_numb(index, buffer, flags, width, precision,
 		length, padd, extra_ch));
 }
 

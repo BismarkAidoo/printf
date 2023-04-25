@@ -17,13 +17,13 @@ int handle_print(const char *fmt, int *cr, va_list args, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int a, unknown_len = 0, display_chars = -1;
-	
 	fmt_t fmt_types[] = {
 		{'c', display_char}, {'s', display_string}, {'%', display_percent},
 		{'i', display_int}, {'d', display_int}, {'b', display_bin},
 		{'u', display_unsigned}, {'o', display_octal}, {'x', display_hexadecimal},
-		{'X', display_hex_upper}, {'p', display_pointer}, {'S', display_non_printable},
-		{'r', display_reverse}, {'R', display_r13string}, {'\0', NULL}
+		{'X', display_hex_upper}, {'p', display_pointer},
+		{'S', display_non_printable}, {'r', display_reverse},
+		{'R', display_r13string}, {'\0', NULL}
 	};
 
 	for (a = 0; fmt_types[a].fmt != '\0'; a++)

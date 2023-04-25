@@ -39,7 +39,8 @@ int _printf(const char *format, ...)
 			precision = _precision(format, &a, args);
 			size = _size(format, &a);
 			++a;
-			display = handle_print(format, &a, args, buffer, flags, width, precision, size);
+			display = handle_print(format, &a, args, buffer,
+					flags, width, precision, size);
 			if (display == -1)
 				return (-1);
 			display_chars += display;
@@ -54,7 +55,7 @@ int _printf(const char *format, ...)
 /**
  * print_buffer - display the values of the buffer if it exist.
  * @buff_ind: Index at which to add next char, represents the length.
- * @buffer: A pointer to a character array 
+ * @buffer: A pointer to a character array
  */
 
 void print_buffer(char buffer[], int *buff_ind)

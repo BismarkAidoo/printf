@@ -10,7 +10,6 @@
 int g_flags(const char *format, int *i)
 {
 	/* F(-)=1, F(+)=2, F(0)=4, F(#)=8, F('')=16 */
-	
 	int flags = 0;
 	int a, member_i;
 	const char FLAGS_CH[] = {'-', '+', '0', '#', ' ', '\0'};
