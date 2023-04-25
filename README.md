@@ -100,6 +100,7 @@ $
 
 		- `S` : prints the string.
 		- Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: `\x`, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+	````
 	alex@ubuntu:~/c/printf$ cat main.c
 	#include "main.h"
 
@@ -117,6 +118,7 @@ $
 	alex@ubuntu:~/c/printf$ ./a.out
 	Best\x0ASchool
 	alex@ubuntu:~/c/printf$
+	````
 
 - 6. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print
 
