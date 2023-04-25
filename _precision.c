@@ -9,7 +9,7 @@
  * Return: P
  */
 
-int precision(const char *format, int *i, va_list args)
+int _precision(const char *format, int *i, va_list args)
 {
 	int member_i = *i + 1;
 	int p = -1;

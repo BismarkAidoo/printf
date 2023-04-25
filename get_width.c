@@ -9,7 +9,7 @@
  * Return: width.
  */
 
-int get_width(const char *format, int *i, va_list args)
+int giet_width(const char *format, int *i, va_list args)
 {
 	/* li_arg for current index in pointer i */
 	int li_arg;

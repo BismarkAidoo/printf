@@ -8,7 +8,7 @@
  * Return: Precision
  */
 
-int size(const char *format, int *i)
+int _size(const char *format, int *i)
 {
 	int member_i = *i + 1;
 	int size = 0;

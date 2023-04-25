@@ -6,7 +6,7 @@
  * @args: List of arguments to be printed.
  * @cr: current integer.
  * @width: get width.
- * @flags: Calculates active flags
+ * @flags: Determines active flags
  * @buffer: buffer array to handle print.
  * @size: size specifier
  * @precision: Precision specification

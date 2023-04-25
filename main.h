@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -81,8 +82,8 @@ int display_pointer(va_list types, char buffer[],
 /* Funciotns to handle other specifiers */
 int g_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list args);
-int precision(const char *format, int *i, va_list args);
-int size(const char *format, int *i);
+int _precision(const char *format, int *i, va_list args);
+int _size(const char *format, int *i);
 
 /*Function to print string in reverse*/
 int display_reverse(va_list types, char buffer[],
@@ -108,9 +109,9 @@ char buffer[],
 
 /****************** UTILS ******************/
 
-int is_printable(char);
-int append_hex_code(char, char[], int);
-int is_digit(char);
+int _printable(char);
+int affix_hex_code(char, char[], int);
+int _digit(char);
 
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
