@@ -156,9 +156,7 @@ $
 
 	* `R`: prints the rot13'ed string
 
-- 15. *
-
-All the above options work well together.
+- 15. *All the above options work well together.
 
 ## Acknowledgements
 The `printf` function emulates functionality of the C standard library function `printf`. This README borrows from the Linux man page printf(3).
