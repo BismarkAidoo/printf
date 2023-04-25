@@ -43,9 +43,11 @@ $
 		- Returns: the number of characters printed (excluding the null byte used to end output to strings)
 		- write output to stdout, the standard output stream
 		- `format` is a character string. The format string is composed of zero or more directives. See `man 3 printf` for more detail. You need to handle the following conversion specifiers:
+
 			`c`
 			`s`
 			`%`
+
 
 - 1. Education is when you read the fine print. Experience is what you get if you don't
 
@@ -60,7 +62,7 @@ $
 
 		`b`: the unsigned int argument is converted to binary
 
-
+	````
 	alex@ubuntu:~/c/printf$ cat main.c
 	#include "main.h"
 
@@ -78,7 +80,7 @@ $
 	alex@ubuntu:~/c/printf$ ./a.out
 	1100010
 	alex@ubuntu:~/c/printf$
-
+	````
 
 - 3. What one has not experienced, one will never understand in print
 
