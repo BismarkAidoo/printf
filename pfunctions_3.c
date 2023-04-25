@@ -77,10 +77,10 @@ int display_non_printable(va_list types, char buffer[],
 
 	while (str[a] != '\0')
 	{
-		if (is_printable(str[a]))
+		if (_printable(str[a]))
 			buffer[a + offset] = str[a];
 		else
-			offset += append_hexa_code(str[a], buffer, a + offset);
+			offset += affix_hex_code(str[a], buffer, a + offset);
 
 		a++;
 	}

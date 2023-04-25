@@ -9,7 +9,7 @@
  * Return: width.
  */
 
-int giet_width(const char *format, int *i, va_list args)
+int get_width(const char *format, int *i, va_list args)
 {
 	/* li_arg for current index in pointer i */
 	int li_arg;
@@ -17,7 +17,7 @@ int giet_width(const char *format, int *i, va_list args)
 
 	for (li_arg = *i + 1; format[li_arg] != '\0'; li_arg++)
 	{
-		if (is_digit(format[li_arg]))
+		if (_digit(format[li_arg]))
 		{
 			w *= 10;
 			w += format[li_arg] - '0';
