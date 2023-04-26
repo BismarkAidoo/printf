@@ -11,7 +11,7 @@
  *
  * Return: Number of chars printed
  */
-int hndle_write_char(char c, char buffer[], int flags,
+int handle_write_char(char c, char buffer[], int flags,
 		int width, int precision, int size)
 {
 	int a = 0;
@@ -45,8 +45,8 @@ int hndle_write_char(char c, char buffer[], int flags,
 /**
  * write_number - Writes a string
  * @is_negative: Lista of arguments
- * @cr: char types
  * @buffer: Buffer array to handle print
+ * @index: int type
  * @flags: Determines active flags
  * @width: A width specifier
  * @precision: A precision specifier

@@ -17,7 +17,8 @@ int display_char(va_list types, char buffer[], int flags, int width,
 {
 	char c = va_arg(types, int);
 
-	return (handle_write_c(c, buffer, flags, width, precision, size));
+	return (handle_write_c(c, buffer, flags, width, precision,
+				size));
 }
 
 /**

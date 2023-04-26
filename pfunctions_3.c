@@ -13,42 +13,42 @@
 int display_pointer(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	char xtra_char = 0, padd = ' ';
+	char extra_c = 0, padd = ' ';
 	int i = BUFF_SIZE - 2, length = 2, padd_start = 1; /* length=2, for '0x' */
-	unsigned long num_address;
+	unsigned long num_addr;
 	char go_to[] = "0123456789abcdef";
-	void *address = va_arg(types, void *);
+	void *addr = va_arg(types, void *);
 
 	UNUSED(width);
 	UNUSED(size);
 
-	if (address == NULL)
+	if (addr == NULL)
 		return (write(1, "(nil)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
 
-	num_address = (unsigned long)address;
+	num_addr = (unsigned long)addr;
 
-	while (num_address > 0)
+	while (num_addr > 0)
 	{
-		buffer[i--] = go_to[num_address % 16];
-		num_address /= 16;
+		buffer[i--] = go_to[num_addr % 16];
+		num_addr /= 16;
 		length++;
 	}
 
 	if ((flags & F_ZERO) && !(flags & F_MINUS))
 		padd = '0';
 	if (flags & F_PLUS)
-		xtra_char = '+', length++;
+		extra_c = '+', length++;
 	else if (flags & F_SPACE)
-		xtra_char = ' ', length++;
+		extra_c = ' ', length++;
 
 	i++;
 
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (write_pointer(buffer, i, length,
-		width, flags, padd, xtra_char, padd_start));
+		width, flags, padd, extra_c, padd_start));
 }
 
 /**
