@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _printable - Outlines if a char is printable
+ * is_printable - Outlines if a char is printable
  * @c: parameter char to be outlined.
  *
  * Return: 1 if c is printable, 0 otherwise
  */
-int _printable(char c)
+int is_printable(char c)
 {
 	if (c >= 32 && c < 127)
 		return (1);
@@ -38,12 +38,12 @@ int affix_hex_code(char ascii_code, char buffer[], int i)
 }
 
 /**
- * _digit - Verifies if a char is a digit
+ * is_digit - Verifies if a char is a digit
  * @c: Char to be evaluated
  *
  * Return: 1 if c is a digit, 0 otherwise
  */
-int _digit(char c)
+int is_digit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

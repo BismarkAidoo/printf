@@ -84,8 +84,8 @@ int display_pointer(va_list types, char buffer[], int flags,
 /***** Handlers *****/
 int g_flags(const char *format, int *i);
 int get_width(const char *format, int *i, va_list args);
-int _precision(const char *format, int *i, va_list args);
-int _size(const char *format, int *i);
+int precision(const char *format, int *i, va_list args);
+int size(const char *format, int *i);
 
 /*Function to display string in reverse*/
 int display_reverse(va_list types, char buffer[], int flags,
@@ -96,7 +96,7 @@ int display_r13string(va_list types, char buffer[],
 		int flags, int width, int precision, int size);
 
 /* width handler */
-int handle_write_c(char c, char buffer[],
+int handle_write_char(char c, char buffer[],
 		int flags, int width, int precision, int size);
 int write_number(int is_positive, int index, char buffer[], 
 		int flags, int width, int precision, int size);
@@ -108,9 +108,9 @@ int write_unsgnd(int is_negative, int cr, char buffer[],
 		int flags, int width, int precision, int size);
 
 /********* Utils ***********/
-int _printable(char);
+int is_printable(char);
 int affix_hex_code(char, char[], int);
-int _digit(char);
+int is_digit(char);
 
 long int convert_size_number(long int num, int size);
 long int convert_size_unsgnd(unsigned long int num, int size);
